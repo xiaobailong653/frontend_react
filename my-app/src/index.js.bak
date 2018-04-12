@@ -1,0 +1,40 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import './css/font-awesome.min.css';
+import './css/bootstrap.css';
+
+import Headerwrap from './js/main/Headerwrap';
+import registerServiceWorker from './registerServiceWorker';
+import Production from './js/main/Product';
+import NavBar from './js/main/NavBar';
+import Introduce from './js/main/Introduce';
+
+
+var navbar = {};
+navbar.brand = {linkTo: "#", text: "河北德雄吊索具有限公司"};
+navbar.links = [
+  {linkTo: "#", text: "网站首页", active: true},
+  {dropdown: true, text: "关于我们", links: [
+    {linkTo: "#", text: "关于我们"},
+    {linkTo: "#", text: "联系方式"}
+  ]},
+  {linkTo: "#", text: "新闻中心"},
+  {dropdown: true, text: "产品中心", links: [
+    {linkTo: "#", text: "梁类"},
+    {linkTo: "#", text: "液压设备类"}
+  ]},
+  {linkTo: "#", text: "资质认证"},
+  {dropdown: true, text: "吊装实例", links: [
+    {linkTo: "#", text: "特制吊具"},
+    {linkTo: "#", text: "夹具"}
+  ]},
+  {linkTo: "#", text: "联系我们"},
+];
+
+// ReactDOM.render(<LikeButton />, document.getElementById('test'));
+ReactDOM.render(<NavBar brand={navbar.brand} links={navbar.links}/>, document.getElementById('navigation'));
+ReactDOM.render(<Headerwrap />, document.getElementById('headerwrap'));
+ReactDOM.render(<Production />, document.getElementById('production'));
+ReactDOM.render(<Introduce />, document.getElementById('introduce'));
+registerServiceWorker();
